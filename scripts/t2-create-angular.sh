@@ -1,7 +1,8 @@
+#!/usr/bin/env bash 
+
 # INPUTS > TICKET, TEMPLATE
 
 # Parse arguments
-
 
 cd $T2_HOME
 
@@ -61,6 +62,6 @@ npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH
 
 git add . &&/
 git commit -m "t2-$TICKET  with $TEMPLATE template created" &&/
-git push 
+git push && /
 
-echo "DONE"`
+echo "complete"
