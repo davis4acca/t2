@@ -44,24 +44,24 @@ TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
 
 echo "Creating... TICKET = t2-$TICKET"
 
-git pull && /
-ng new  --style scss --routing false --directory $PATH_TO_PROJECT && /
-npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
+# git pull && /
+ng new t2t$TICKET --style scss --routing false --directory $PATH_TO_PROJECT  --strict true&& /
+# npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
- if [ "$TEMPLATE" ]
- then
-    if test -d "$TEMPLATE_FILE"; then
-        echo "applying $TEMPLATE template"
-        'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET/
-    fi
- else 
-   echo "NO TEMPLATE PROVIDED - creating regular angular project"
- fi
+#  if [ "$TEMPLATE" ]
+#  then
+#     if test -d "$TEMPLATE_FILE"; then
+#         echo "applying $TEMPLATE template"
+#         'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET/
+#     fi
+#  else 
+#    echo "NO TEMPLATE PROVIDED - creating regular angular project"
+#  fi
 
 
 
-git add . &&/
-git commit -m "t2-$TICKET  with $TEMPLATE template created" &&/
-git push && /
+# git add . &&/
+# git commit -m "t2-$TICKET  with $TEMPLATE template created" &&/
+# git push && /
 
-echo "complete"
+# echo "complete"
