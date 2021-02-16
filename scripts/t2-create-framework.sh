@@ -44,3 +44,34 @@ git commit -m "t2-$TICKET  with $TEMPLATE template created" &&/
 git push 
 
 echo "DONE"`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# create-react  -ticket
+# create-react-functional -ticket
+# create angular -ticket
+# create vue -ticket
+
+
+# create project
+# apply template
+# push to github

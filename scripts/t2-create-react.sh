@@ -20,13 +20,28 @@ done
 
 cd $T2_HOME
 
-# @TODO IF NOT TICKET = ERROR
-# @TODO IF TICKET NR ALREADY EXIST rempromt for new ticket
+
+# NO TICKET = EXIT
+if [ "$TICKET" ]; then
+  echo "CREATING $TICKET"
+else
+  echo "NO TICKET PROVIDED"
+  exit 1
+fi
+
+# TICKET NR ALREADY EXIST = EXIT
+TICKET_PROJECT_PATH="$T2_HOME/projects/t2-$TICKET"
+
+if test -d "$TICKET_PROJECT_PATH"; then
+  echo "TICKET ALREADY EXIST"
+  exit 1
+fi
 
 
-PATH_TO_PROJECT="$T2_HOME/projects/t2-$TICKET"
+PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
 TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
 
+echo $PATH_TO_PROJECT
 echo "Creating... TICKET = t2-$TICKET"
 
 git pull && /
