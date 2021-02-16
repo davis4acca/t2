@@ -39,6 +39,8 @@ fi
 TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
 
 
+PATH_TO_PROJECT="$T2_HOME""projects/t2t-$TICKET"
+echo $PATH_TO_PROJECT
 
 git pull && /
 ng new hello --directory "./projects/t2t-$TICKET" --style scss --routing false --strict true --skip-git true && /
