@@ -20,21 +20,31 @@ done
 
 cd $T2_HOME
 
+
+
+
+# @TODO IF NOT TICKET = ERROR
+# @TODO IF TICKET NR ALREADY EXIST rempromt for new ticket
+
+
+PATH_TO_PROJECT="$T2_HOME/projects/t2-$TICKET"
+TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
+
+
 # echo "Creating... TICKET = t2-$TICKET"
 
-git pull && /
- create-react-app ./projects/t2-$TICKET && /
-npm i --save ag-grid-react ag-grid-community ag-grid-enterprise && /
+# git pull && /
+# create-react-app $PATH_TO_PROJECT && /
+# npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
-TEMPLATE_FILE="./templates/$TEMPLATE/src"
 
 if test -d "$TEMPLATE_FILE"; then
     echo "applying $TEMPLATE template"
-    'cp' -rf ././templates/$TEMPLATE/*  ./projects/t2-$TICKET/
+    'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET/
 fi
 
-git add . &&/
-git commit -m "t2-$TICKET  with $TEMPLATE teemplate created" &&/
-git push 
+# git add . &&/
+# git commit -m "t2-$TICKET  with $TEMPLATE teemplate created" &&/
+# git push 
 
-echo "DONE"`
+# echo "DONE"`
