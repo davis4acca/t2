@@ -39,13 +39,14 @@ fi
 
 
 
-PATH_TO_PROJECTS="$T2_HOME/projects/"
+PATH_TO_PROJECTS="$T2_HOME""projects"
 TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
 
-echo "Creating... TICKET = t2-$TICKET"
+echo $PATH_TO_PROJECTS
+
 
 # git pull && /
-ng new t2t$TICKET --style scss --routing false --directory $PATH_TO_PROJECTS  --strict true && /
+ng new hello --directory "./projects/t2t-$TICKET" --style scss --routing false --strict true --skip-git true && /
 # npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
 #  if [ "$TEMPLATE" ]
