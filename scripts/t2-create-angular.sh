@@ -1,14 +1,9 @@
-#!/usr/bin/env bash 
+# INPUTS > TICKET, TEMPLATE
 
-
-# INPUTS
-# TICKET
-# TEMPLATE
 
 # Parse arguments
 for ARGUMENT in "$@"
 do
-
     KEY=$(echo $ARGUMENT | cut -f1 -d=)
     VALUE=$(echo $ARGUMENT | cut -f2 -d=)   
 
@@ -21,17 +16,23 @@ done
 
 cd $T2_HOME
 
-# echo "Creating... TICKET = t2-$TICKET"
+# @TODO IF NOT TICKET = ERROR
+# @TODO IF TICKET NR ALREADY EXIST rempromt for new ticket
+
+
+PATH_TO_PROJECT="$T2_HOME/projects/t2-$TICKET"
+TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
+
+echo "Creating... TICKET = t2-$TICKET"
 
 git pull && /
-ng new ./projects/t2-$TICKET --style scss --routing false &&/
-npm i --save ag-grid-react ag-grid-community ag-grid-enterprise && /
+ng new  --style scss --routing false --directory $PATH_TO_PROJECT && /
+npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
-TEMPLATE_FILE="./templates/$TEMPLATE/app"
 
 if test -d "$TEMPLATE_FILE"; then
     echo "applying $TEMPLATE template"
-    'cp' -rf ././templates/$TEMPLATE/*  ./projects/t2-$TICKET/
+    'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET/
 fi
 
 git add . &&/
