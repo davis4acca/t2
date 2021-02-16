@@ -1,6 +1,6 @@
 #!/usr/bin/env bash 
 
-rm -rf ../projects &&/
+rm -rf $T2_PROJECTS/
 git add . &&/
 git commit -m 'clear' &&/
 git push
