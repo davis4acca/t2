@@ -18,7 +18,6 @@ do
     esac    
 done
 
-
 # NO TICKET = EXIT
  if [ "$TICKET" ]
  then
@@ -39,11 +38,11 @@ fi
 TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
 
 
-PATH_TO_PROJECT="$T2_HOME""projects/t2t-$TICKET"
+PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
 echo $PATH_TO_PROJECT
 
 git pull && /
-ng new hello --directory "./projects/t2t-$TICKET" --style scss --routing false --strict true --skip-git true && /
+ng new hello --directory "./projects/t2-$TICKET" --style scss --routing false --strict true --skip-git true && /
 npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
  if [ "$TEMPLATE" ]
