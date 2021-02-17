@@ -39,14 +39,14 @@ fi
 
 
 PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
-TEMPLATE_FOLDER="$T2_HOME/templates/$TEMPLATE/"
+TEMPLATE_FOLDER="$T2_HOME/templates/$TEMPLATE"
 
 echo $PATH_TO_PROJECT
 echo "Creating... TICKET = t2-$TICKET"
 
 git pull && /
-create-react-app $PATH_TO_PROJECT && /
-npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
+# create-react-app $PATH_TO_PROJECT && /
+# npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
 
 # test if TEMPLATE FOLDER EXIST
