@@ -32,10 +32,10 @@ fi
 # TICKET NR ALREADY EXIST = EXIT
 TICKET_PROJECT_PATH="$T2_HOME/projects/t2-$TICKET"
 
-if test -d "$TICKET_PROJECT_PATH"; then
-  echo "TICKET ALREADY EXIST"
-  exit 1
-fi
+# if test -d "$TICKET_PROJECT_PATH"; then
+#   echo "TICKET ALREADY EXIST"
+#   exit 1
+# fi
 
 
 PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
