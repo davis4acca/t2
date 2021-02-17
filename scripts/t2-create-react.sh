@@ -39,7 +39,7 @@ fi
 
 
 PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
-TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
+TEMPLATE_FOLDER="$T2_HOME/templates/$TEMPLATE/"
 
 echo $PATH_TO_PROJECT
 echo "Creating... TICKET = t2-$TICKET"
@@ -49,7 +49,8 @@ create-react-app $PATH_TO_PROJECT && /
 npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
 
 
-if test -d "$TEMPLATE_FILE"; then
+# test if TEMPLATE FOLDER EXIST
+if test -d "$TEMPLATE_FOLDER"; then
     echo "applying $TEMPLATE template"
     'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET/
 fi
