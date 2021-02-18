@@ -60,3 +60,4 @@ git add . &&/
 git commit -m "t2-$TICKET  with $TEMPLATE template created" &&/
 git push 
 
+echo "complete"

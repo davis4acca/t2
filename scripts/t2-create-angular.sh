@@ -33,20 +33,19 @@ if test -d "$TICKET_PROJECT_PATH"; then
   exit 1
 fi
 
-TEMPLATE_FILE="$T2_HOME/templates/$TEMPLATE/"
-
-PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
-echo $PATH_TO_PROJECT
+TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
+PROJECT_DIR_PATH="$T2_HOME""projects/t2-$TICKET"
+echo $PROJECT_DIR_PATH
 
 git pull && /
-# the --directory didn't work with PATH_TO_PROJECT
+# the --directory didn't work with PROJECT_DIR_PATH
 ng new hello --directory "./projects/t2-$TICKET" --style scss --routing false --strict true --skip-git true && /
-npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
+npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
 if [ "$TEMPLATE" ]; then
-  if test -d "$TEMPLATE_FILE"; then
+  if test -d "$TEMPLATE_DIR_PATH"; then
     echo "applying $TEMPLATE template"
-    'cp' -rf $T2_HOME/templates/$TEMPLATE/* $T2_HOME/projects/t2-$TICKET/
+    'cp' -rf "$TEMPLATE_DIR_PATH/*"  $PROJECT_DIR_PATH
   fi
 else
   echo "NO TEMPLATE PROVIDED - creating regular angular project"
