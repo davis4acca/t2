@@ -52,7 +52,7 @@ npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_T
 # test if TEMPLATE FOLDER EXIST
 if test -d "$TEMPLATE_FOLDER"; then
     echo "applying $TEMPLATE template"
-    'cp' -rf $T2_HOME/templates/$TEMPLATE/*  $T2_HOME/projects/t2-$TICKET
+    'cp' -rf "$T2_HOME/templates/$TEMPLATE/*"  "$T2_HOME/projects/t2-$TICKET"
 fi
 
 git add . &&/
