@@ -33,8 +33,8 @@ if test -d "$TICKET_PROJECT_PATH"; then
   exit 1
 fi
 
+PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
 TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
-PROJECT_DIR_PATH="$T2_HOME""projects/t2-$TICKET"
 echo $PROJECT_DIR_PATH
 
 git pull && /
