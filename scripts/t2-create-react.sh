@@ -38,21 +38,22 @@ if test -d "$TICKET_PROJECT_PATH"; then
 fi
 
 
-PATH_TO_PROJECT="$T2_HOME""projects/t2-$TICKET"
-TEMPLATE_FOLDER="$T2_HOME/templates/$TEMPLATE"
+PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
+TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 
-echo $PATH_TO_PROJECT
+echo $PROJECT_DIR_PATH
+
 echo "Creating... TICKET = t2-$TICKET"
 
 git pull && /
-create-react-app $PATH_TO_PROJECT && /
-npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PATH_TO_PROJECT && /
+create-react-app $PROJECT_DIR_PATH && /
+npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
 
 # test if TEMPLATE FOLDER EXIST
-if test -d "$TEMPLATE_FOLDER"; then
+if test -d "$TEMPLATE_DIR_PATH"; then
     echo "applying $TEMPLATE template"
-    'cp' -rf "$T2_HOME/templates/$TEMPLATE/*"  "$T2_HOME/projects/t2-$TICKET"
+    'cp' -rf "$TEMPLATE_DIR_PATH/*"  $PROJECT_DIR_PATH
 fi
 
 git add . &&/
