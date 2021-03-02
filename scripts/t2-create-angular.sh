@@ -2,8 +2,7 @@
 
 # INPUTS > TICKET, TEMPLATE
 
-# Parse arguments
-
+# GO TO T2_HOME and PARSE ARGUMENTS
 cd $T2_HOME
 
 for ARGUMENT in "$@"; do
@@ -29,21 +28,23 @@ fi
 TICKET_PROJECT_PATH="$T2_HOME/projects/t2-$TICKET"
 
 if test -d "$TICKET_PROJECT_PATH"; then
-  echo "TICKET ALREADY EXIST"
+  echo "PROJECT WITH THE TICKET NR ALREADY EXIST"
   exit 1
 fi
 
 PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
 TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
-echo $PROJECT_DIR_PATH
+
 
 git pull && /
-# the --directory didn't work with PROJECT_DIR_PATH
+
+# ANGULAR SPECIFIC
+
 ng new hello --directory "./projects/t2-$TICKET" --style scss --routing false --strict true --skip-git true && /
 npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
-echo $TEMPLATE_DIR_PATH
 
+# test if TEMPLATE PROVIDED AND IF TEMPLATE FOLDER EXIST
 if [ "$TEMPLATE" ]; then
   if test -d "$TEMPLATE_DIR_PATH"; then
     echo "applying $TEMPLATE template"
