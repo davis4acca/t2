@@ -5,32 +5,15 @@
 cd $T2_HOME
 
 # HELPER FUNCTIONS
-PARSE_TICKET_TEMPLATE_ARGUMENTS_PATH="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
+PARSE_TICKET_TEMPLATE_ARGUMENTS="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
+EXIT_IF_NO_TICKET_PROVIDED="$T2_HOME/scripts/helpers/exit-if-no-ticket-provided.sh"
+EXIT_IF_PROJECT_ALREADY_EXIST="$T2_HOME/scripts/t2/scripts/helpers/exit-if-project-already-exists.sh"
+source ${PARSE_TICKET_TEMPLATE_ARGUMENTS} # PARSES TICKET,TEMPLATE into variables
+source ${EXIT_IF_NO_TICKET_PROVIDED} 
+source ${EXIT_IF_PROJECT_ALREADY_EXIST} #  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
 
-echo "hello" ${PARSE_TICKET_TEMPLATE_ARGUMENTS_PATH}
-
-source ${PARSE_TICKET_TEMPLATE_ARGUMENTS_PATH}
-
-echo ${TICKET} ${TEMPLATE}
-
-# # # NO TICKET = EXIT
-# if [ "$TICKET" ]; then
-#   echo "CREATING $TICKET"
-# else
-#   echo "NO TICKET PROVIDED"
-#   exit 1
-# fi
-
-# #  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
-# TICKET_PROJECT_PATH="$T2_HOME/projects/t2-$TICKET"
-
-# if test -d "$TICKET_PROJECT_PATH"; then
-#   echo "PROJECT WITH THE TICKET NR ALREADY EXIST"
-#   exit 1
-# fi
-
-# PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
-# TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
+PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
+TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 
 
 # git pull && /

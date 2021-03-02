@@ -60,4 +60,4 @@ git commit -m "t2-$TICKET  with $TEMPLATE template created" && /
 git push && /
 
 echo "complete"
-echo "LINK TO CODESANDBOX https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
+echo "LINK TO CODESANDBOX: https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
