@@ -2,58 +2,36 @@
 
 # INPUTS > TICKET, TEMPLATE
 
-# GO TO T2_HOME and PARSE ARGUMENTS
 cd $T2_HOME
 
-for ARGUMENT in "$@"; do
-  KEY=$(echo $ARGUMENT | cut -f1 -d=)
-  VALUE=$(echo $ARGUMENT | cut -f2 -d=)
+# SUB ROUTINES - HELPERS PATHS
+PARSE_TICKET_TEMPLATE_ARGUMENTS="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
+EXIT_IF_NO_TICKET_PROVIDED="$T2_HOME/scripts/helpers/exit-if-no-ticket-provided.sh"
+EXIT_IF_PROJECT_ALREADY_EXIST="$T2_HOME/scripts/helpers/exit-if-project-already-exists.sh"
+APPLY_TEMPLATE_IF_PROVIDED="$T2_HOME/scripts/helpers/apply-template-if-provided.sh"
 
-  case "$KEY" in
-  TICKET) TICKET=${VALUE} ;;
-  TEMPLATE) TEMPLATE=${VALUE} ;;
-  *) ;;
-  esac
-done
-
-# # NO TICKET = EXIT
-if [ "$TICKET" ]; then
-  echo "CREATING $TICKET"
-else
-  echo "NO TICKET PROVIDED"
-  exit 1
-fi
-
-#  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
-TICKET_PROJECT_PATH="$T2_HOME/projects/t2-$TICKET"
-
-if test -d "$TICKET_PROJECT_PATH"; then
-  echo "PROJECT WITH THE TICKET NR ALREADY EXIST"
-  exit 1
-fi
+source $PARSE_TICKET_TEMPLATE_ARGUMENTS # PARSES TICKET,TEMPLATE into variables
 
 PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
+source $EXIT_IF_NO_TICKET_PROVIDED #USES PROJECT PATH
+source $EXIT_IF_PROJECT_ALREADY_EXIST #  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
+
+
 TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 
 
+
 git pull && /
+
 
 # REACT SPECIFIC
 
 npx create-react-app $PROJECT_DIR_PATH && /
 npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
+# REACT SPECIFIC END
 
-# test if TEMPLATE PROVIDED AND IF TEMPLATE FOLDER EXIST
-# If exist then use that template by copying over files from template to project
-if [ "$TEMPLATE" ]; then
-  if test -d "$TEMPLATE_DIR_PATH"; then
-    echo "applying $TEMPLATE template"
-    'cp' -rf $TEMPLATE_DIR_PATH/* $PROJECT_DIR_PATH
-  fi
-else
-  echo "NO TEMPLATE PROVIDED - creating regular angular project"
-fi
+source ${APPLY_TEMPLATE_IF_PROVIDED}
 
 git add . && /
 git commit -m "t2-$TICKET  with $TEMPLATE template created" && /
