@@ -31,7 +31,7 @@ npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PROJEC
 
 # REACT SPECIFIC END
 
-source ${APPLY_TEMPLATE_IF_PROVIDED}
+source $APPLY_TEMPLATE_IF_PROVIDED
 
 git add . && /
 git commit -m "t2-$TICKET  with $TEMPLATE template created" && /

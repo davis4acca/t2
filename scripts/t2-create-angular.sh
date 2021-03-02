@@ -29,7 +29,7 @@ ng new hello --directory "./projects/t2-$TICKET" --style scss --routing false --
 npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
 # ANGULAR SPECIFIC END
-source ${APPLY_TEMPLATE_IF_PROVIDED}
+source $APPLY_TEMPLATE_IF_PROVIDED
 
 git add . && /
 git commit -m "t2-$TICKET  with $TEMPLATE template created" && /
