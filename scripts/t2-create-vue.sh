@@ -23,12 +23,12 @@ TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 
 git pull && /
 
-#  VUE2 SPECIFIC SCRIPT
+#  VUE SPECIFIC SCRIPT
 
-vue create $PROJECT_DIR_PATH  && /
-npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
+vue create -b $PROJECT_DIR_PATH && /
+npm i --save ag-grid-vue ag-grid-community ag-grid-enterprise vue-property-decorator@^8.0.0 && /
 
-# VUE2 SPECIFIC END
+# VUE SPECIFIC END
 source ${APPLY_TEMPLATE_IF_PROVIDED}
 
 git add . && /
@@ -37,3 +37,4 @@ git push && /
 
 echo "complete"
 echo "LINK TO CODESANDBOX: https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
+echo "LINK TO STACKBLITZ: https://stackblitz.com/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
