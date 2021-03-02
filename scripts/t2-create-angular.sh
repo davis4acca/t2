@@ -4,19 +4,21 @@
 
 cd $T2_HOME
 
-# SUB ROUTINES - HELPERS
+# SUB ROUTINES - HELPERS PATHS
 PARSE_TICKET_TEMPLATE_ARGUMENTS="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
 EXIT_IF_NO_TICKET_PROVIDED="$T2_HOME/scripts/helpers/exit-if-no-ticket-provided.sh"
 EXIT_IF_PROJECT_ALREADY_EXIST="$T2_HOME/scripts/helpers/exit-if-project-already-exists.sh"
 APPLY_TEMPLATE_IF_PROVIDED="$T2_HOME/scripts/helpers/apply-template-if-provided.sh"
 
+source $PARSE_TICKET_TEMPLATE_ARGUMENTS # PARSES TICKET,TEMPLATE into variables
+source $EXIT_IF_NO_TICKET_PROVIDED 
+source $EXIT_IF_PROJECT_ALREADY_EXIST #  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
+
 
 PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
 TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 
-source ${PARSE_TICKET_TEMPLATE_ARGUMENTS} # PARSES TICKET,TEMPLATE into variables
-source ${EXIT_IF_NO_TICKET_PROVIDED} 
-source ${EXIT_IF_PROJECT_ALREADY_EXIST} #  PROJECT WITH THE TICKET NR ALREADY EXIST = EXIT
+
 
 git pull && /
 
