@@ -24,10 +24,10 @@ TEMPLATE_DIR_PATH="$T2_HOME/templates/$TEMPLATE"
 git pull && /
 
 #  VUE SPECIFIC SCRIPT
-
-vue create -b $PROJECT_DIR_PATH && /
+cd $T2_HOME/projects && /
+vue create -d t2-$TICKET && /
 npm i --save ag-grid-vue ag-grid-community ag-grid-enterprise vue-property-decorator@^8.0.0 && /
-
+cd $T2_HOME &&/
 # VUE SPECIFIC END
 source ${APPLY_TEMPLATE_IF_PROVIDED}
 
