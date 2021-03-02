@@ -40,7 +40,7 @@ git pull && /
 
 # REACT SPECIFIC
 
-create-react-app $PROJECT_DIR_PATH && /
+npx create-react-app $PROJECT_DIR_PATH && /
 npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PROJECT_DIR_PATH && /
 
 
