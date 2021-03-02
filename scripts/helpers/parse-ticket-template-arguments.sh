@@ -1,6 +1,6 @@
 
 # HARDCODED PARSE TICKET AND TEMPLATE ARGUMENTS
-# WHEN USER WRITES TEMPLATE="angular" TICKET="123" then these get stored into the variables 
+# PARSES into variables i.e: TICKET="123" TEMPLATE="react"  
 for ARGUMENT in "$@"
 do
     KEY=$(echo $ARGUMENT | cut -f1 -d=)

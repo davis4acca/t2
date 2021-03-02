@@ -2,10 +2,9 @@
 
 # INPUTS > TICKET, TEMPLATE
 
-# GO TO T2_HOME and PARSE ARGUMENTS
 cd $T2_HOME
 
-
+# HELPER FUNCTIONS
 PARSE_TICKET_TEMPLATE_ARGUMENTS_PATH="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
 
 echo "hello" ${PARSE_TICKET_TEMPLATE_ARGUMENTS_PATH}
