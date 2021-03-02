@@ -7,8 +7,8 @@ cd $T2_HOME
 # SUB ROUTINES - HELPERS
 PARSE_TICKET_TEMPLATE_ARGUMENTS="$T2_HOME/scripts/helpers/parse-ticket-template-arguments.sh"
 EXIT_IF_NO_TICKET_PROVIDED="$T2_HOME/scripts/helpers/exit-if-no-ticket-provided.sh"
-EXIT_IF_PROJECT_ALREADY_EXIST="$T2_HOME/scripts/t2/scripts/helpers/exit-if-project-already-exists.sh"
-APPLY_TEMPLATE_IF_PROVIDED="$T2_HOME/scripts/t2/scripts/helpers/apply-template-if-provided.sh"
+EXIT_IF_PROJECT_ALREADY_EXIST="$T2_HOME/scripts/helpers/exit-if-project-already-exists.sh"
+APPLY_TEMPLATE_IF_PROVIDED="$T2_HOME/scripts/helpers/apply-template-if-provided.sh"
 
 
 PROJECT_DIR_PATH="$T2_HOME/projects/t2-$TICKET"
