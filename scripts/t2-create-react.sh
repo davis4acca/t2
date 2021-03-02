@@ -39,3 +39,4 @@ git push && /
 
 echo "complete"
 echo "LINK TO CODESANDBOX: https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
+echo "LINK TO STACKBLITZ: https://stackblitz.com/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
