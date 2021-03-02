@@ -45,6 +45,7 @@ npm i --save ag-grid-angular ag-grid-community ag-grid-enterprise --prefix $PROJ
 
 
 # test if TEMPLATE PROVIDED AND IF TEMPLATE FOLDER EXIST
+# If exist then use that template by copying over files from template to project
 if [ "$TEMPLATE" ]; then
   if test -d "$TEMPLATE_DIR_PATH"; then
     echo "applying $TEMPLATE template"
@@ -59,4 +60,4 @@ git commit -m "t2-$TICKET  with $TEMPLATE template created" && /
 git push && /
 
 echo "complete"
-echo "LINK TO CODESANDBOX https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"
+echo "LINK TO CODESANDBOX: https://codesandbox.io/s/github/davis4acca/t2/tree/main/projects/t2-${TICKET}"

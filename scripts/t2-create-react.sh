@@ -45,6 +45,7 @@ npm i --save ag-grid-react ag-grid-community ag-grid-enterprise --prefix $PROJEC
 
 
 # test if TEMPLATE PROVIDED AND IF TEMPLATE FOLDER EXIST
+# If exist then use that template by copying over files from template to project
 if [ "$TEMPLATE" ]; then
   if test -d "$TEMPLATE_DIR_PATH"; then
     echo "applying $TEMPLATE template"
